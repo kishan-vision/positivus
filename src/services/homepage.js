@@ -20,7 +20,6 @@ export const fetchEntries = async (contentType) => {
         });
         return response.data.entries;
     } catch (error) {
-        console.log('Error fetching entries:', error);
         return [];
     }
 };

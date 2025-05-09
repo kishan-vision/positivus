@@ -1,10 +1,12 @@
 import Paragraph from '@/components/common/Paragraph';
+import Title from '@/components/common/Title';
 import Link from 'next/link';
 import React from 'react'
 
 const CaseStudiesCard = ({ item }) => {
     return (
         <div className='flex flex-col md:border-r-[#FFFFFF] md:border-r-1 pe-7 last:border-r-0'>
+            {item?.title && <Title level={4}>{item?.title}</Title>}
             <Paragraph className='text-lg'>
                 {item?.description}
             </Paragraph>

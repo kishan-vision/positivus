@@ -7,7 +7,7 @@ const CaseStudies = ({ data }) => {
         <div className='py-12'>
             <SectionHeader title={data?.title} description={data?.description} />
             <div className='pt-14'>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 bg-[#191A23] md:p-14 p-10 rounded-4xl text-white'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 bg-[#191A23] md:p-14 p-6 rounded-4xl text-white'>
                     {
                         data?.case_studies_card?.map((item, index) => (
                             <CaseStudiesCard item={item} key={index} />

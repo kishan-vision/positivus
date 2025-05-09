@@ -4,7 +4,7 @@ import MinusIcon from '@/components/icons/MinusIcon';
 import PlusIcon from '@/components/icons/PlusIcon';
 import { useState } from 'react';
 
-export default function Accordion({ items }) {
+export default function Accordion({ items, isShowNumber = true }) {
     const [activeIndex, setActiveIndex] = useState(null);
 
     return (
@@ -19,24 +19,29 @@ export default function Accordion({ items }) {
                         className="flex justify-between items-center w-full py-8 cursor-pointer rounded-3xl"
                     >
                         <div className="flex md:items-center items-start space-x-4">
-                            <span className="md:text-6xl text-4xl font-bold">
-                                {String(index + 1).padStart(2, '0')}
-                            </span>
+                            {
+                                isShowNumber &&
+                                <span className="md:text-6xl text-4xl font-bold">
+                                    {String(index + 1).padStart(2, '0')}
+                                </span>
+                            }
                             <Title level={3} className='!mb-0 md:text-2xl'>{item.title}</Title>
                         </div>
-                        {
-                            activeIndex === index ? (
-                                <span className='border bg-white transform transition-transform duration-300 rounded-full size-14 flex items-center justify-center'>
-                                    <MinusIcon />
-                                </span>
-                            )
-                                :
-                                (
-                                    <span className='border bg-white transform transition-transform duration-300 rounded-full size-14 flex items-center justify-center'>
-                                        <PlusIcon />
+                        <div>
+                            {
+                                activeIndex === index ? (
+                                    <span className='border bg-white transform transition-transform duration-300 rounded-full md:size-14 size-10 p-2 md:p-0 flex items-center justify-center'>
+                                        <MinusIcon />
                                     </span>
                                 )
-                        }
+                                    :
+                                    (
+                                        <span className='border bg-white transform transition-transform duration-300 rounded-full md:size-14 size-10 p-2 md:p-0 flex items-center justify-center'>
+                                            <PlusIcon />
+                                        </span>
+                                    )
+                            }
+                        </div>
                         {/* <ChevronDownIcon
                             className={`w-5 h-5 transform transition-transform duration-300 ${activeIndex === index ? 'rotate-180' : ''
                                 }`}
